@@ -1,10 +1,23 @@
 *************Project 1*****************
 
 Project Title
-Give your project a clear and descriptive title.
+World Polluted Country Report
 
 Description
-Provide a concise description of your project. Explain what the project does, its purpose, and its main features. For a data ETL project, mention the technologies, tools, and frameworks used.
+Purpose of this Data Pipeline and Data Insights report is to ingest data into raw zone and then transform and store into curated zone after cleanup and transform and then make it available to ATHENA and Redshift spectrum to query. Use Microsoft powerbi tool to build visualization and show below.
+1. 10 Most polluted countries in the world
+2. Pollution by Country_Region.
+3. Pollution by country_land_area
+4. Pollution growth rate by countries
+
+Architect Diagram of Data Pipeline and Tools / AWS services used are below.
+
+![Datapipeline Image](images/Data pipeline diagram polluted countries.jpg)
+
+
+
+
+
 
 Getting Started
 Include instructions on how to get started with your project. This section could cover steps like:
