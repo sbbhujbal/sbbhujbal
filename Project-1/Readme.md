@@ -12,7 +12,7 @@ Purpose of this Data Pipeline and Data Insights report is to ingest data into ra
 
 Architect Diagram of Data Pipeline and Tools / AWS services used are below.
 
-![Datapipeline Image](images/Data pipeline diagram polluted countries.jpg)
+![Datapipeline Image](images/Data_pipeline_diagram_polluted_countries.jpg)
 
 
 
