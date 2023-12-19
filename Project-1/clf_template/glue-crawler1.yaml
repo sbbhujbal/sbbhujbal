@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name of the S3 bucket containing the data to be crawled
+  DatabaseName:
+    Type: String
+    Description: Name of the Glue database to store metadata
+  CrawlerName:
+    Type: String
+    Description: Name of the Glue crawler
+  ScheduleExpression:
+    Type: String
+    Default: "cron(0 0 * * ? *)" # Default schedule (runs daily at midnight)
+    Description:  Cron expression for crawler schedule (e.g., "cron(0 12 * * ? *)" for daily at noon)
+Resources:
+  GlueCrawler:
+    Type: AWS::Glue::Crawler
+    Properties:
+      Name: !Ref CrawlerName
+      Role: !GetAtt GlueCrawlerRole.Arn
+      DatabaseName: !Ref DatabaseName
+      Targets:
+        S3Targets:
+          - Path: !Sub "s3://sbhujbal123/landing/most-polluted-countries.csv"  # Replace with the S3 path of the data to be crawled
+     # Schedule: !Ref ScheduleExpression  # Use the specified ScheduleExpression parameter
+  GlueCrawlerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "glue.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: "GlueCrawlerPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "s3:GetObject"
+                  - "s3:ListBucket"
+                  - "s3:PutObject"
+                Resource:
+                  - !Sub "arn:aws:s3:::sbhujbal123"
+                  - !Sub "arn:aws:s3:::sbhujbal123/*"
+              - Effect: Allow
+                Action: logs:PutLogEvents
+                #Resource: arn:aws:logs:us-east-1:000255843146:log-group:/aws-glue/crawlers:log-stream:sun-glue-crawler-raw
+                Resource: "*"

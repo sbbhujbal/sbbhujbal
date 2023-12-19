@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name stack-glue-job --template-body file://C:\Users\sunil\OneDrive\Sunil_data\Mydata\mygits\sbbhujbal\Project-1\clf_template\glue_jobs.yaml --parameters ParameterKey=SourceBucketName,ParameterValue=sbhujbal123 ParameterKey=DestinationBucketName,ParameterValue=sbhujbal123 --capabilities CAPABILITY_NAMED_IAM
