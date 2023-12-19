@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  SourceBucketName:
+    Type: String
+    Description: Name of the source S3 bucket containing data to be processed
+  DestinationBucketName:
+    Type: String
+    Description: Name of the destination S3 bucket to store processed data
+Resources:
+  GlueJobRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: glue.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: GlueJobS3Policy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "s3:GetObject"
+                  - "s3:PutObject"
+                Resource:
+                  - !Sub "arn:aws:s3:::sbhujbal123/*"
+                  - !Sub "arn:aws:s3:::sbhujbal123/*"
+
+  GlueJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: YourGlueJobName
+      Role: !GetAtt GlueJobRole.Arn
+      Command:
+        Name: glueetl
+        ScriptLocation: s3://sbhujbal123/scripts/glue_etl_script.py  # Replace with your Glue script location
+      DefaultArguments:
+        "--job-bookmark-option": "job-bookmark-enable"
+      ExecutionProperty:
+        MaxConcurrentRuns: 1
+      MaxCapacity: 2.0  # Modify as needed based on your job's resource requirements
+      GlueVersion: "3.0"

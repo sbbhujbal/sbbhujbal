@@ -1,0 +1,2 @@
+select country_land_area_in_km, pollution_2023 as pollution 
+from spectrum_schema.polluted_countries_ext
