@@ -17,8 +17,8 @@ Here are some ideas to get you started:
 <h1 align="center">** Hey there, I'm Sunil Bhujbal 👋 ** </h1>
 
 <p align="center">
-# **I’m currently working on AWS Data Engineering, SNOWFLAKE data engineering, DATABRICKS data engineering and ML platforms **
-## Hello! I’m Sunil Bhujbal, an enthusiastic data engineering leader driven by the data driven decisions potential of data. With a proven track record of designing and implementing efficient cloud data platforms on AWS/Snowflake and Databricks. A seasoned professional with a track record of innovation, cost optimization, and successful leadership.
+**I’m currently working on AWS Data Engineering, SNOWFLAKE data engineering, DATABRICKS data engineering and ML platforms **
+Hello! I’m Sunil Bhujbal, an enthusiastic data engineering leader driven by the data driven decisions potential of data. With a proven track record of designing and implementing efficient cloud data platforms on AWS/Snowflake and Databricks. A seasoned professional with a track record of innovation, cost optimization, and successful leadership.
 </p>
 
 <img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
