@@ -148,14 +148,14 @@ Test it, if there is no problem save it.
 
 
 **##  5. Run the DAG**
-Open and login to Airflow webserver at http://localhost:8080 and the run the DAG manually to test it.
+- Open and login to Airflow webserver at http://localhost:8080 and the run the DAG manually to test it.
 
-ALL SUCCESS. Let's check the S3 bucket raw zone, curated zone and Athena Table "sb_nutrition"for data and then do some "Nutrition Analysis" on this data using SQL queries.
+- ALL SUCCESS. Let's check the S3 bucket raw zone, curated zone and Athena Table "sb_nutrition"for data and then do some "Nutrition Analysis" on this data using SQL queries.
 
 **## 6. Athena Analytics**
-Run the code here in queries folder to analyze beverages and nutrion content.
-Check which beverages are healthy and which are not healthy.
-Check beverages by NO calorie , no sugar to High calorie, High sugar etc.
+- Run the code here in queries folder to analyze beverages and nutrion content.
+- Check which beverages are healthy and which are not healthy.
+- Check beverages by NO calorie , no sugar to High calorie, High sugar etc.
 
 
 **# That's it. This is the end of this project. Thank you for your interest.**
