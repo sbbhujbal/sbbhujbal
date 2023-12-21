@@ -44,17 +44,17 @@ and download CSV file related to starbucks nutrition on your laptop
 ## 2.1 create AWS S3 Bucket
 Go to AWS S3 page and create a bucket. My bucket name is 'sbhujbal123'.
 Create folders
-     raw - to ingest strabucks.csv file
-     curated - to transform schema and datatypes appropriately and save Glue Jobs output in parquet format
-     scripts - to store Glue Jobs scripts
-     athena_logs - to store athena query logs 
+ 1. raw - to ingest strabucks.csv file,
+ 2. curated - to transform schema and datatypes appropriately and save Glue Jobs output in parquet format,
+ 3. scripts - to store Glue Jobs scripts,
+ 4. athena_logs - to store athena query logs 
 
  ## 2.2 Create IAM role and Glue Jobs
- Go to AWS IAM page and create a IAM role for Glue Jobs
- Go to AWS Glue catalogue and create database say sundb
- Go to AWS Glue studio and create a Visual ETL jOB and create Glue Transform job to change schema ( apply mappinng ) and datatypes
+ 1. Go to AWS IAM page and create a IAM role for Glue Jobs
+ 2. Go to AWS Glue catalogue and create database say sundb
+ 3. Go to AWS Glue studio and create a Visual ETL jOB and create Glue Transform job to change schema ( apply mappinng ) and datatypes
  and ensure input raw data and output curated data - Glue catalogue table is created by this job or used DDL from here to create Table
- Run the job with test data and ensure it works.    
+ 4. Run the job with test data and ensure it works.    
 
 
 
@@ -63,15 +63,15 @@ Create folders
 
 - Connection Id: aws_connection (you can change it)
 - Connection Type: Amazon Web Services
-- AWS Access Key ID: (You can learn it form AWS)
-- AWS Secret Access Key ID: (You can learn it form AWS)
+- AWS Access Key ID: (You can download from AWS account)
+- AWS Secret Access Key ID: (You can download from AWS account)
 
 Test it, if there is no problem save it.
 
 ## 4. Create Airflow DAG and Task
-This is the python file for DAG and Task. There are only 2 task .
-First task is data ingestion where file gets uploaded into raw zone 
-Second task is a Glue Job which transforms this data and stores into curated folder
+- This is the python file for DAG and Task. There are only 2 task .
+- First task is data ingestion where file gets uploaded into raw zone 
+- Second task is a Glue Job which transforms this data and stores into curated folder
 ```
 from datetime import datetime, timedelta
 from airflow import DAG
@@ -144,18 +144,21 @@ run_glue_job_task = PythonOperator(
 upload_to_s3_task >> run_glue_job_task
 
 
-## 5. Run the DAG
-Open and login Airflow webserver. Than run the DAG.
 
-ALL SUCCESS. Let's check the S3 bucket raw zone, curated zone and Athena Table "sb_nutrition" 
 
-## 6. Athena Analytics
+
+### 5. Run the DAG
+Open and login to Airflow webserver at http://localhost:8080 and the run the DAG manually to test it.
+
+ALL SUCCESS. Let's check the S3 bucket raw zone, curated zone and Athena Table "sb_nutrition"for data and then do some "Nutrition Analysis" on this data using SQL queries.
+
+### 6. Athena Analytics
 Run the code here in queries folder to analyze beverages and nutrion content.
 Check which beverages are healthy and which are not healthy.
 Check beverages by NO calorie , no sugar to High calorie, High sugar etc.
 
 
-## That's it. This is the end of this project. Thank you for your interest.
+### That's it. This is the end of this project. Thank you for your interest.
 
 
 
