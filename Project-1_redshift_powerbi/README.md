@@ -19,7 +19,7 @@ Architect Diagram of Data Pipeline and Tools / AWS services used are below.
 
 
 Getting Started
-To start working on this project you need to AWS free-tier account already setup because we are going to use AWS S3, AWS Glue, AWS Athena, AWS IAM, AWS cloudformation, AWS Redshift services.
+To start working on this project you need to AWS free-tier account because we are going to use AWS S3, AWS Glue, AWS Athena, AWS IAM, AWS cloudformation, AWS Redshift services.
 Also you need to have Microsoft POWERBI tool installed on your Windows Laptop to do data visualization needed at the end of this setup. 
 I have used Microsofy Visual Souce Code tool to setup my code repository and uploaded to GitHub where all codes, configurations, images and codes are avvailable from this project.
 
