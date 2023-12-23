@@ -111,7 +111,7 @@ Below image shows - Change default "Buffer Interval" from 600 sec to 60 sec. for
 
 !![Create AWS Glue Crawler](images/create_glue_crawler.jpeg)
 
-## 2.36. Athena Analytics
+## 2.3. Athena Analytics
 - Run the code here in Atena_queries folder to analyze abnormal blood pressure readings from different patient devices
 - Prepare report for analysis and action plan 
      ```
@@ -122,7 +122,7 @@ Below image shows - Change default "Buffer Interval" from 600 sec to 60 sec. for
         FROM "sundb"."sunsbhujbal123" bp
         where ( bp.systolic >= 200  ) or (bp.diastolic >= 120)
 
-        
+
     ```
 
 
