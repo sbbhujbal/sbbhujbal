@@ -56,17 +56,19 @@ Go to AWS SNS page and create  SNS topic subscriber, once you get Email, confirm
 !![Create SNS topic subscriber Image](images/create_sns_topic_subscriptions.jpeg)
 
 ## 1.5. create producer lambda function 
-Go to AWS Lambda page and create  Lambda function, use python language 3.12 , paste code from pyscripts folder in code section in this function => produce_bp_events.py. Deploy it and TEST it using default config for time-out - 3 sec.
-Go to Kinesis stream and in Metrics - check for Incoming data. If you see that data events are getting into Kinesis stream then proceed further.
+- Go to AWS Lambda page and create  Lambda function, 
+- use python language 3.12 , paste code from pyscripts folder in code section in this function => produce_bp_events.py. Deploy it and TEST it using default config for time-out - 3 sec.
+- Go to Kinesis stream and in Metrics - check for Incoming data. 
+- If you see that data events are getting into Kinesis stream then proceed further.
 
 !![producer lambda function Image](images/create_producer_lambda_function.jpeg)
 
 
 ## 1.5. create consumer lambda function and TEST for event consumption and alert notifications if needed for critical data 
-- Go to AWS Lambda page and create  Lambda function for stream consumer, use python language 3.12 , create trigger for this function from Kinesis stream above , paste code from pyscripts folder in code section in this function => consumer_test_code.py Deploy it and 
+- Go to AWS Lambda page and create  Lambda function for stream consumer purpose, use python language 3.12 , create trigger for this function from Kinesis stream above , paste code from pyscripts folder in code section in this function => consumer_test_code.py. Next Deploy it and 
 - TEST it using  config for time-out of 30 sec for producer lambda function.
 - Go to this consumer Lambda function and in tab Monitor, click on Cloudwatch logs and verify event Records - check for Incoming data in cloudwatch log streams. If you see that data events are getting cosumed by this Lambda function then proceed further. 
-- Next step is paste code from pyscripts folder in code section in this function => consumer_test_code.py Deploy it and 
+- Next step is paste code from pyscripts folder in code section in this function => consume_notify_bp_events.py and Deploy it and 
 - TEST it by using config for time-out of 5 min in the producer lambda function.
 - Once stream events are consumed and analyzed by consumer Lambda , it will send SNS notification to your Email, confirm you get EMAIL notifications 
 - If you see Email notifications then this Real Time Notification part is working which is main goal of streaming platforms
@@ -93,7 +95,7 @@ Below image shows when SNS notifications send Email, you will see EMAIL notifica
 - Go to AWS kinesis page and create a KDF . 
 - Use above Kinesis stream as source and S3 bucket defined in earlier step as Target.
 - Change default "Buffer Interval" from 600 sec to 60 sec.
-- Next steps is TEST that KDF moves data events into S3 bucket
+- Next steps is TEST =>  that KDF moves data events into S3 bucket
 - TEST your producer Lambda Function with time-out of 5 min.This function will generate events and KDF will consume them and move them into s3 bucket at 60 sec. interval
 - If you see data in S3 bucket then you are done !
 
@@ -109,14 +111,18 @@ Below image shows - Change default "Buffer Interval" from 600 sec to 60 sec. for
 
 !![Create AWS Glue Crawler](images/create_glue_crawler.jpeg)
 
-**## 6. Athena Analytics**
+## 2.36. Athena Analytics
 - Run the code here in Atena_queries folder to analyze abnormal blood pressure readings from different patient devices
 - Prepare report for analysis and action plan 
-     ```SELECT id as device_ID,
+     ```
+     
+     SELECT id as device_ID,
             systolic systolic_pressure,
             diastolic as diastolic_pressure
         FROM "sundb"."sunsbhujbal123" bp
         where ( bp.systolic >= 200  ) or (bp.diastolic >= 120)
+
+        
     ```
 
 
