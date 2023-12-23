@@ -25,7 +25,7 @@ Hello! I’m Sunil Bhujbal, an enthusiastic data engineering leader driven by th
 <img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
 
 - 💼 Data Engineering Technology Leader @ Prudential Financials
-- 👨‍💻 All of my projects are available at https://github.com/sbbhujbal/sbbhujbal
+- 👨‍💻 All of my Data Engineering projects are available at https://github.com/sbbhujbal/sbbhujbal
 - 💬 Ask me about AWS/Snowflake & Databricks CDP, Data engineering, SQL/nosql Databases, Data pipelines, Data infrastructure
 
 - 📝 1k+ followers on LInkedIn --> >
