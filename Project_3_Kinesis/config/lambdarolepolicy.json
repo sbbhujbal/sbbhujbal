@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudWatchLogsAccess",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonKinesisAccess",
+            "Effect": "Allow",
+            "Action": "kinesis:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AmazonSNSAccess",
+            "Effect": "Allow",
+            "Action": "sns:*",
+            "Resource": "*"
+        }
+    ]
+}
